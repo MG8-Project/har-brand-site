@@ -43,6 +43,11 @@ const IntroWrapper = styled.article`
     height: 75vw;
     max-height: 768px;
   }
+  @media ${theme.mq.mobile} {
+    width: 100%;
+    height: 100vh;
+    max-height: unset;
+  }
 `;
 const ReactPlayerWrapper = styled.div`
   position: relative;
@@ -106,6 +111,19 @@ const TitleWrap = styled.div`
       width: 32.0313vw;
     }
   }
+  @media ${theme.mq.mobile} {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    gap: unset;
+    > img {
+      position: absolute;
+      top: 23.125%;
+      width: 66.6667vw;
+    }
+  }
 `;
 const BtnComingSoon = styled.button`
   position: relative;
@@ -116,6 +134,12 @@ const BtnComingSoon = styled.button`
   background-color: #2c2c2c;
   overflow: hidden;
   @media ${theme.mq.tablet} {
+    width: 240px;
+    height: 48px;
+  }
+  @media ${theme.mq.tablet} {
+    position: absolute;
+    bottom: 17.7778vw;
     width: 240px;
     height: 48px;
   }
