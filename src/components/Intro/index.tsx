@@ -27,8 +27,8 @@ export default function Intro() {
 const IntroWrapper = styled.article`
   width: 100%;
   height: 100vh;
-  min-height: 1080px;
   position: relative;
+  overflow: hidden;
     >img {
       object-fit: cover;
       width: 100%;
@@ -77,7 +77,7 @@ const TitleWrap = styled.div`
   ${theme.positions.flexColumnY};
   gap: 64px;
   position: absolute;
-  top: 320px;
+  top: 35.4%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -122,5 +122,5 @@ const BtnText = styled.p`
   ${theme.positions.flexCenterXY};
   font-size: 1.8rem;
   font-weight: 600;
-  color: #f5f5f5;
+  color: ${theme.colors.tx};
 `;

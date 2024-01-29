@@ -40,11 +40,9 @@ export default function Home(): JSX.Element {
 }
 
 const BodyWrapper = styled.main<ScrollProps>`
-  margin-top: ${({ scrollerState }) => (scrollerState ? '-80px' : '0')};
-  transition: all ease 0.2s;
-`;
-
-const HomeWrapper = styled.main`
   width: 100%;
   overflow: hidden;
+  margin-top: ${({ scrollerState }) => (scrollerState ? '-80px' : '0')};
+  transition: all ease 0.2s;
+  background-color: #000;
 `;

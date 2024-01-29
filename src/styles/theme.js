@@ -9,6 +9,7 @@ const fontSizes = {
 const colors = {
     bg: {
     },
+    tx: "#f5f5f5"
 };
 const positions = {
     flexCenterXY: "display: flex; justify-content: center; align-items: center;",
