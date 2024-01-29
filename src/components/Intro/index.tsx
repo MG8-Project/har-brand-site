@@ -92,7 +92,7 @@ const IntroOpacityBg = styled.div`
 `;
 const TitleWrap = styled.div`
   ${theme.positions.flexColumnY};
-  gap: 64px;
+  gap: 101px;
   position: absolute;
   top: 35.4%;
   left: 50%;
