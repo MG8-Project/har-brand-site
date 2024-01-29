@@ -108,6 +108,9 @@ const ModalWrapper = styled(Modal)`
     width: 100%;
     height: 75vw !important;
   }
+  @media ${theme.mq.mobile} {
+    height: 100vh !important;
+  }
 `;
 
 const ChildrenArea = styled.div`
@@ -140,5 +143,11 @@ const CloseButton = styled.button`
     top: 2.3438vw;
     width: 4.6875vw;
     height: 4.6875vw;
+  }
+  @media ${theme.mq.mobile} {
+    right: 18px;
+    top: 18px;
+    width: 36px;
+    height: 36px;
   }
 `;

@@ -76,6 +76,9 @@ const CopyRight = styled.p`
   @media ${theme.mq.tablet} {
     font-size: 14px;
   }
+  @media ${theme.mq.mobile} {
+    font-size: 12px;
+  }
 `;
 const LogoWrap = styled.div`
   width: 80px;

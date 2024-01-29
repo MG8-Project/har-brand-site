@@ -43,6 +43,11 @@ const IntroWrapper = styled.article`
     height: 75vw;
     max-height: 768px;
   }
+  @media ${theme.mq.mobile} {
+    width: 100%;
+    height: 100vh;
+    max-height: unset;
+  }
 `;
 const ReactPlayerWrapper = styled.div`
   position: relative;
@@ -106,6 +111,19 @@ const TitleWrap = styled.div`
       width: 32.0313vw;
     }
   }
+  @media ${theme.mq.mobile} {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    gap: unset;
+    > img {
+      position: absolute;
+      top: 23.125%;
+      width: 66.6667vw;
+    }
+  }
 `;
 const BtnComingSoon = styled.button`
   position: relative;
@@ -118,6 +136,12 @@ const BtnComingSoon = styled.button`
   @media ${theme.mq.tablet} {
     width: 240px;
     height: 48px;
+  }
+  @media ${theme.mq.mobile} {
+    position: absolute;
+    bottom: 17.7778vw;
+    width: 216px;
+    height: 44px;
   }
 `;
 const BtnEpic = styled.div`
@@ -145,6 +169,16 @@ const BtnEpic = styled.div`
       font-size: 16px;
     }
   }
+  @media ${theme.mq.mobile} {
+    padding: 0 4px;
+    gap: 4px;
+    > img {
+      width: 36px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
 `;
 const BtnText = styled.p`
   position: absolute;
@@ -160,5 +194,8 @@ const BtnText = styled.p`
 
   @media ${theme.mq.tablet} {
     font-size: 16px;
+  }
+  @media ${theme.mq.mobile} {
+    font-size: 14px;
   }
 `;
