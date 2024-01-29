@@ -38,9 +38,10 @@ const GallerySlideWrapper = styled.div`
   .slick-slider {
     position: relative;
     width: 1584px;
-    height: 100%;
+    height: 788px;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
   }
   .slick-list {
     position: absolute;
@@ -48,7 +49,7 @@ const GallerySlideWrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     width: 1400px;
-    height: 788px;
+    height: 100%;
     overflow: hidden;
   }
   .slick-dots {
@@ -56,7 +57,7 @@ const GallerySlideWrapper = styled.div`
     justify-content: center;
     gap: 10px;
     height: 12px;
-    bottom: 90px;
+    bottom: -68px;
     li {
       width: 12px;
       height: 12px;

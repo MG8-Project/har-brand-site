@@ -5,6 +5,7 @@ import ReactPageScroller from "react-page-scroller";
 import Intro from "../../components/Intro";
 import Gallery from "../../components/Gallery";
 import {useModalStore} from "../../store/ModalStore";
+import LinkNav from "../../components/Common/LinkNav";
 
 interface ScrollProps {
     scrollerState: boolean
@@ -39,6 +40,7 @@ export default function Home(): JSX.Element {
                 <Gallery />
             </ReactPageScroller>
             <Footer scrollerState={scrollerState} />
+            <LinkNav scrollerState={scrollerState} />
         </BodyWrapper>
     );
 }

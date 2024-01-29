@@ -14,6 +14,11 @@ const StyledSelf = styled.button`
   width: 60px;
   height: 60px;
   padding: 0;
+  svg {
+    path {
+      transition: fill .3s ease;
+    }
+  }
   &:before {
     display: none;
   }
