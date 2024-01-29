@@ -20,31 +20,28 @@ export default function Gallery() {
   };
   return (
     <GalleryWrapper id={"1"}>
-      <img src={galleryBg} alt={"screen shots"} />
-      <ContentWrap>
-        <Title>Screenshots</Title>
-        <ScreenshotLists>
-          {screenshotsArray.map((item, index) => (
-            <ScreenshotItem key={index} onClick={() => handleClickItem(index)}>
-              <img
-                src={getImage(`gallery_img_${index + 1}`)}
-                alt="gallery image"
-              />
-            </ScreenshotItem>
-          ))}
-        </ScreenshotLists>
-        {isSlideModalOpen && (
-          <CommonModal
-            width={"100vw"}
-            height={"100%"}
-            modalIsOpen={isSlideModalOpen}
-            closeModal={closeSlideModal}
-            closeIcon={true}
-          >
-            <GallerySlide selectedItem={selectedItem} />
-          </CommonModal>
-        )}
-      </ContentWrap>
+      <Title>Screenshots</Title>
+      <ScreenshotLists>
+        {screenshotsArray.map((item, index) => (
+          <ScreenshotItem key={index} onClick={() => handleClickItem(index)}>
+            <img
+              src={getImage(`gallery_img_${index + 1}`)}
+              alt="gallery image"
+            />
+          </ScreenshotItem>
+        ))}
+      </ScreenshotLists>
+      {isSlideModalOpen && (
+        <CommonModal
+          width={"100vw"}
+          height={"100%"}
+          modalIsOpen={isSlideModalOpen}
+          closeModal={closeSlideModal}
+          closeIcon={true}
+        >
+          <GallerySlide selectedItem={selectedItem} />
+        </CommonModal>
+      )}
     </GalleryWrapper>
   );
 }
@@ -53,31 +50,23 @@ const GalleryWrapper = styled.article`
   width: 100%;
   height: 100vh;
   min-height: 1080px;
-  position: relative;
-  img {
-    object-fit: cover;
-    width: 100%;
-    height: calc(100% + 1px);
-  }
-  @media ${theme.mq.tablet} {
-    height: 75vw;
-    max-height: 768px;
-    min-height: unset;
-  }
-`;
-const ContentWrap = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  background: url(${galleryBg}) no-repeat center;
+  background-size: cover;
   ${theme.positions.flexColumnY};
   justify-content: center;
   row-gap: 68px;
   @media ${theme.mq.tablet} {
+    height: fit-content;
+    min-height: unset;
+    max-height: 768px;
     padding-top: 7.4219vw;
     row-gap: 6.6406vw;
     justify-content: flex-start;
+  }
+  @media ${theme.mq.mobile} {
+    max-height: unset;
+    padding-top: 64px;
+    row-gap: 34px;
   }
 `;
 
@@ -88,15 +77,15 @@ const ScreenshotLists = styled.ul`
   padding: 0 20px;
   width: 1400px;
   @media ${theme.mq.tablet} {
-    padding: 0;
-    width: 89.0625vw;
-    gap: 1.5625vw;
+    width: 100%;
+    padding: 0 20px 145px;
+  }
+  @media ${theme.mq.mobile} {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 20px 40px;
   }
 `;
 const ScreenshotItem = styled.li`
-  position: relative;
-  width: 328px;
-  height: 184px;
   transition: transform 0.3s ease;
   cursor: pointer;
   img {
@@ -109,9 +98,5 @@ const ScreenshotItem = styled.li`
     img {
       filter: brightness(1);
     }
-  }
-  @media ${theme.mq.tablet} {
-    width: 21.0938vw;
-    height: 11.9141vw;
   }
 `;

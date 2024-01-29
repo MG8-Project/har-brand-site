@@ -4,8 +4,8 @@ import { useState } from "react";
 import ReactPageScroller from "react-page-scroller";
 import Intro from "../../components/Intro";
 import Gallery from "../../components/Gallery";
-import { useModalStore } from "../../store/ModalStore";
 import LinkNav from "../../components/Common/LinkNav";
+import { useModalStore } from "../../store/ModalStore";
 import { useMediaQuery } from "react-responsive";
 
 interface ScrollProps {

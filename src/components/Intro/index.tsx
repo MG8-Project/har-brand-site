@@ -137,7 +137,7 @@ const BtnComingSoon = styled.button`
     width: 240px;
     height: 48px;
   }
-  @media ${theme.mq.tablet} {
+  @media ${theme.mq.mobile} {
     position: absolute;
     bottom: 17.7778vw;
     width: 240px;

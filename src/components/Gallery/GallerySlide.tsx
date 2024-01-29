@@ -69,7 +69,7 @@ const GallerySlideWrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     width: 1400px;
-    height: 100%;
+    height: auto;
     overflow: hidden;
   }
   .slick-dots {
@@ -109,6 +109,19 @@ const GallerySlideWrapper = styled.div`
       li {
         width: 8px;
         height: 8px;
+      }
+    }
+  }
+  @media ${theme.mq.mobile} {
+    .slick-slider {
+      height: 100vh;
+    }
+    .slick-dots {
+      bottom: 62px;
+      gap: 8px;
+      li {
+        width: 6px;
+        height: 6px;
       }
     }
   }

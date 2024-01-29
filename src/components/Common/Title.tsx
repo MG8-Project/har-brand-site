@@ -27,6 +27,10 @@ const TitleText = styled.h2`
     font-size: 28px;
     padding: 0 67px;
   }
+  @media ${theme.mq.mobile} {
+    font-size: 22px;
+    padding: 0 46px;
+  }
 `;
 const TitleDeco = styled.div`
   position: relative;
