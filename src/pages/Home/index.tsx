@@ -4,6 +4,7 @@ import {useState} from "react";
 import ReactPageScroller from "react-page-scroller";
 import Intro from "../../components/Intro";
 import Gallery from "../../components/Gallery";
+import {useModalStore} from "../../store/ModalStore";
 
 interface ScrollProps {
     scrollerState: boolean
@@ -12,7 +13,8 @@ interface ScrollProps {
 
 export default function Home(): JSX.Element {
     const [currentPage, setCurrentPage] = useState(0);
-    const [scrollerState, setScrollerState] = useState(false)
+    const [scrollerState, setScrollerState] = useState(false);
+    const { isModalOpen } = useModalStore();
     const handleBeforePageChange = (number: number) => {
         console.log("페이지 변경", number);
         setCurrentPage(number);
@@ -30,6 +32,8 @@ export default function Home(): JSX.Element {
                 onBeforePageScroll={handleBeforePageChange}
                 handleScrollUnavailable={handleScrollUnavailable}
                 renderAllPagesOnFirstRender
+                blockScrollDown={isModalOpen}
+                blockScrollUp={isModalOpen}
             >
                 <Intro />
                 <Gallery />

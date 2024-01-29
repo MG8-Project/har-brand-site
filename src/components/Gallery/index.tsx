@@ -2,12 +2,23 @@ import styled from "styled-components";
 import {galleryBg, iconDeco} from "../../assets/images";
 import {theme} from "../../styles/theme";
 import Title from "../Common/Title";
+import {useState} from "react";
+import useModal from "../../hooks/useModal";
+import CommonModal from "../Common/CommonModal";
+import GallerySlide from "./GallerySlide";
 
 export default function Gallery() {
     const getImage = (imgName: string) => {
         return require(`../../assets/images/gallery/${imgName}.jpg`)
     };
     const screenshotsArray = Array.from({ length: 12 }, (_, index) => index + 1);
+    const [selectedItem, setSelectedItem] = useState(0);
+    const [isSlideModalOpen, openSlideModal, closeSlideModal] =
+        useModal(false);
+    const handleClickItem = (index: number) => {
+        setSelectedItem(index);
+        openSlideModal();
+    }
     return (
         <GalleryWrapper id={"1"}>
             <img src={galleryBg} alt={"screen shots"} />
@@ -15,11 +26,16 @@ export default function Gallery() {
                 <Title>Screenshots</Title>
                 <ScreenshotLists>
                     {screenshotsArray.map((item, index) => (
-                        <ScreenshotItem key={index}>
+                        <ScreenshotItem key={index} onClick={() =>handleClickItem(index)}>
                             <img src={getImage(`gallery_img_${index+1}`)} alt="gallery image"/>
                         </ScreenshotItem>
                     ))}
                 </ScreenshotLists>
+                {isSlideModalOpen && (
+                    <CommonModal width={"100vw"} height={"100%"} modalIsOpen={isSlideModalOpen} closeModal={closeSlideModal} closeIcon={true}>
+                        <GallerySlide />
+                    </CommonModal>
+                )}
             </ContentWrap>
         </GalleryWrapper>
     );
@@ -59,6 +75,7 @@ const ScreenshotItem = styled.li`
   width: 328px;
   height: 184px;
   transition: transform .3s ease;
+  cursor: pointer;
   img {
     width: 100%;
     filter: brightness(0.8);
