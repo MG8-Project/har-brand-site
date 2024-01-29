@@ -33,7 +33,7 @@ export default function Gallery() {
                 </ScreenshotLists>
                 {isSlideModalOpen && (
                     <CommonModal width={"100vw"} height={"100%"} modalIsOpen={isSlideModalOpen} closeModal={closeSlideModal} closeIcon={true}>
-                        <GallerySlide />
+                        <GallerySlide selectedItem={selectedItem} />
                     </CommonModal>
                 )}
             </ContentWrap>
@@ -78,7 +78,7 @@ const ScreenshotItem = styled.li`
   cursor: pointer;
   img {
     width: 100%;
-    filter: brightness(0.8);
+    filter: brightness(0.7);
     transition: filter .3s ease;
     
   }

@@ -122,11 +122,11 @@ const CloseButton = styled.button`
   right: 40px;
   top: 40px;
   padding: 0;
+  width: 60px;
+  height: 60px;
   svg {
-    max-width: 56px;
-    max-height: 56px;
-    width: 2.9167vw;
-    height: 2.9167vw;
+    width: 100%;
+    height: 100%;
   }
   z-index: 9999;
 
@@ -135,9 +135,5 @@ const CloseButton = styled.button`
     top: 16px;
     width: 32px;
     height: 32px;
-    svg {
-      width: 32px;
-      height: 32px;
-    }
   }
 `;

@@ -14,8 +14,8 @@ export default function SvgIcons({ type }: { type: string }) {
         case "next":
             return (
                 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none">
-                    <path d="M40 30L19 8L32 30L19 52L40 30Z" fill="#DADADA"/>
-                    <path d="M40 30L19 8L36 30L19 52L40 30Z" fill="white"/>
+                    <path className={"path1"} d="M40 30L19 8L32 30L19 52L40 30Z" fill="#DADADA"/>
+                    <path className={"path2"} d="M40 30L19 8L36 30L19 52L40 30Z" fill="#fff"/>
                 </svg>
             );
         default:
