@@ -140,8 +140,8 @@ const BtnComingSoon = styled.button`
   @media ${theme.mq.mobile} {
     position: absolute;
     bottom: 17.7778vw;
-    width: 240px;
-    height: 48px;
+    width: 216px;
+    height: 44px;
   }
 `;
 const BtnEpic = styled.div`
@@ -169,6 +169,16 @@ const BtnEpic = styled.div`
       font-size: 16px;
     }
   }
+  @media ${theme.mq.mobile} {
+    padding: 0 4px;
+    gap: 4px;
+    > img {
+      width: 36px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
 `;
 const BtnText = styled.p`
   position: absolute;
@@ -184,5 +194,8 @@ const BtnText = styled.p`
 
   @media ${theme.mq.tablet} {
     font-size: 16px;
+  }
+  @media ${theme.mq.mobile} {
+    font-size: 14px;
   }
 `;
