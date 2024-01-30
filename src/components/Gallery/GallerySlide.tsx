@@ -29,6 +29,7 @@ export default function GallerySlide({
         settings: {
           infinite: true,
           arrows: false,
+          swipeToSlide: true,
         },
       },
     ],
@@ -104,6 +105,11 @@ const GallerySlideWrapper = styled.div`
       width: 100%;
       height: 56.4453vw;
     }
+    .slick-list {
+      transform: translate(-50%, -50%);
+      width: 100%;
+    }
+
     .slick-dots {
       bottom: -44px;
       li {

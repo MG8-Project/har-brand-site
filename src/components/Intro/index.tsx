@@ -186,6 +186,7 @@ const BtnText = styled.p`
   height: 100%;
   top: 0;
   left: 0;
+  -webkit-backdrop-filter: blur(1.5px);
   backdrop-filter: blur(1.5px);
   ${theme.positions.flexCenterXY};
   font-size: 1.8rem;

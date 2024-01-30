@@ -1,11 +1,13 @@
 import styled from "styled-components";
-import { galleryBg, iconDeco } from "../../assets/images";
+import { galleryBg } from "../../assets/images";
 import { theme } from "../../styles/theme";
 import Title from "../Common/Title";
 import { useState } from "react";
 import useModal from "../../hooks/useModal";
 import CommonModal from "../Common/CommonModal";
 import GallerySlide from "./GallerySlide";
+import { useMediaQuery } from "react-responsive";
+import useViewPortSize from "../../hooks/useViewPortSize";
 
 export default function Gallery() {
   const getImage = (imgName: string) => {
@@ -14,16 +16,29 @@ export default function Gallery() {
   const screenshotsArray = Array.from({ length: 12 }, (_, index) => index + 1);
   const [selectedItem, setSelectedItem] = useState(0);
   const [isSlideModalOpen, openSlideModal, closeSlideModal] = useModal(false);
+  const [isHover, setIsHover] = useState(false);
+  const isTablet = useMediaQuery({
+    query: "(max-width: 1024px)",
+  });
+  const isMobile = useMediaQuery({
+    query: "(max-width: 600px)",
+  });
   const handleClickItem = (index: number) => {
     setSelectedItem(index);
     openSlideModal();
   };
+  const { viewHeight } = useViewPortSize();
   return (
     <GalleryWrapper id={"1"}>
       <Title>Screenshots</Title>
-      <ScreenshotLists>
+      <ScreenshotLists className={isHover && !isTablet ? "dark" : ""}>
         {screenshotsArray.map((item, index) => (
-          <ScreenshotItem key={index} onClick={() => handleClickItem(index)}>
+          <ScreenshotItem
+            key={index}
+            onClick={() => handleClickItem(index)}
+            onMouseEnter={() => setIsHover(true)}
+            onMouseLeave={() => setIsHover(false)}
+          >
             <img
               src={getImage(`gallery_img_${index + 1}`)}
               alt="gallery image"
@@ -34,7 +49,6 @@ export default function Gallery() {
       {isSlideModalOpen && (
         <CommonModal
           width={"100vw"}
-          height={"100%"}
           modalIsOpen={isSlideModalOpen}
           closeModal={closeSlideModal}
           closeIcon={true}
@@ -50,7 +64,7 @@ const GalleryWrapper = styled.article`
   width: 100%;
   height: 100vh;
   min-height: 1080px;
-  background: url(${galleryBg}) no-repeat center;
+  background-image: url(${galleryBg});
   background-size: cover;
   ${theme.positions.flexColumnY};
   justify-content: center;
@@ -65,8 +79,10 @@ const GalleryWrapper = styled.article`
   }
   @media ${theme.mq.mobile} {
     max-height: unset;
+    height: fit-content;
     padding-top: 64px;
     row-gap: 34px;
+    background-position: 55% bottom;
   }
 `;
 
@@ -76,6 +92,13 @@ const ScreenshotLists = styled.ul`
   gap: 16px;
   padding: 0 20px;
   width: 1400px;
+  &.dark {
+    li {
+      img {
+        filter: brightness(0.7);
+      }
+    }
+  }
   @media ${theme.mq.tablet} {
     width: 100%;
     padding: 0 20px 145px;
@@ -83,20 +106,26 @@ const ScreenshotLists = styled.ul`
   @media ${theme.mq.mobile} {
     grid-template-columns: repeat(2, 1fr);
     padding: 0 20px 40px;
+    gap: 8px;
   }
 `;
 const ScreenshotItem = styled.li`
-  transition: transform 0.3s ease;
+  transition: transform 0.5s ease;
   cursor: pointer;
   img {
     width: 100%;
-    filter: brightness(0.7);
-    transition: filter 0.3s ease;
+    filter: brightness(1);
+    transition: filter 0.5s ease;
   }
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     img {
-      filter: brightness(1);
+      filter: brightness(1) !important;
+    }
+  }
+  @media ${theme.mq.tablet} {
+    &:hover {
+      transform: unset;
     }
   }
 `;

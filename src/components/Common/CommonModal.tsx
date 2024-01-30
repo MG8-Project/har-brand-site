@@ -40,8 +40,8 @@ const CommonModal = ({
   closeIcon,
   closeText,
 }: ModalProps) => {
-  const { viewHeight } = useViewPortSize();
   const { setIsModalOpen } = useModalStore();
+  const { viewHeight } = useViewPortSize();
   useEffect(() => {
     if (modalIsOpen) {
       setIsModalOpen(true);
@@ -65,6 +65,7 @@ const CommonModal = ({
       ariaHideApp={false}
       isOpen={modalIsOpen}
       onRequestClose={handleClose}
+      viewHeight={viewHeight}
       onAfterOpen={() => {
         document.body.style.overflow = "hidden";
       }}
@@ -84,7 +85,7 @@ const CommonModal = ({
           display: "flex",
           flexDirection: "column",
           maxHeight: maxHeight,
-          height: isMobile ? `${viewHeight}px` : height,
+          height: isMobile ? `${viewHeight}px` : "100%",
           width: width,
           maxWidth: maxWidth,
         },
@@ -103,13 +104,14 @@ const CommonModal = ({
 };
 export default CommonModal;
 
-const ModalWrapper = styled(Modal)`
+const ModalWrapper = styled(Modal)<{ viewHeight: number }>`
   @media ${theme.mq.tablet} {
     width: 100%;
     height: 75vw !important;
   }
   @media ${theme.mq.mobile} {
-    height: 100vh !important;
+    height: ${({ viewHeight }) =>
+      viewHeight ? `${viewHeight}px` : "auto"} !important;
   }
 `;
 
@@ -135,8 +137,18 @@ const CloseButton = styled.button`
   svg {
     width: 100%;
     height: 100%;
+    path {
+      transition: filter 0.3s ease;
+    }
   }
   z-index: 9999;
+  &:hover {
+    svg {
+      path {
+        filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.9));
+      }
+    }
+  }
 
   @media ${theme.mq.tablet} {
     right: 2.3438vw;
