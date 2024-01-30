@@ -12,6 +12,9 @@ html {
   .onlyMobile {
     display: none;
   }
+  @media ${({ theme }) => theme.mq.tablet} {
+    font-size: 50%;
+  }
   @media ${({ theme }) => theme.mq.mobile} {
       font-size: 37.5%;
     .onlyMobile {
