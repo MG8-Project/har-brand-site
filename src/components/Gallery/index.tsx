@@ -91,7 +91,7 @@ const ScreenshotLists = styled.ul`
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   padding: 0 20px;
-  width: 1400px;
+  max-width: 1400px;
   &.dark {
     li {
       img {
