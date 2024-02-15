@@ -51,7 +51,7 @@ export default function Home(): JSX.Element {
         )}
       </BodyWrapper>
       <Footer scrollerState={scrollerState} />
-      <LinkNav scrollerState={scrollerState} />
+      {/*<LinkNav scrollerState={scrollerState} />*/}
     </>
   );
 }
