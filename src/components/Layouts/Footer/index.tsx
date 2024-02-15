@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
-import { iconDiscord, iconYoutube, mantiscoLogo } from "../../../assets/images";
+import { iconDiscord, iconYoutube, megaLink } from "../../../assets/images";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 
@@ -15,9 +15,9 @@ export default function Footer({ scrollerState }: ScrollProps) {
   return (
     <FooterWrapper scrollerState={scrollerState}>
       <InnerWrapper>
-        <CopyRight>©2024 MANTISCO CO., LTD. ALL RIGHTS RESERVED</CopyRight>
+        <CopyRight>Megalink Labs Limited. All RIGHTS RESERVED.</CopyRight>
         <LogoWrap>
-          <img src={mantiscoLogo} alt="멘티스코 로고" />
+          <img src={megaLink} alt="멘티스코 로고" />
         </LogoWrap>
         {isTablet && (
           <LinkSns>
@@ -81,7 +81,7 @@ const CopyRight = styled.p`
   }
 `;
 const LogoWrap = styled.div`
-  width: 80px;
+  width: 139px;
   img {
     display: block;
     width: 100%;
