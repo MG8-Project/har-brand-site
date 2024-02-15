@@ -17,7 +17,7 @@ export default function Footer({ scrollerState }: ScrollProps) {
       <InnerWrapper>
         <CopyRight>Megalink Labs Limited. All RIGHTS RESERVED.</CopyRight>
         <LogoWrap>
-          <img src={megaLink} alt="멘티스코 로고" />
+          <img src={megaLink} alt="메가링크 로고" />
         </LogoWrap>
         {isTablet && (
           <LinkSns>
