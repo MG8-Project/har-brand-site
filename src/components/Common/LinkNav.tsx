@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { theme } from "../../styles/theme";
-import { iconDiscord, iconYoutube } from "../../assets/images";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { theme } from '../../styles/theme';
+import { iconDiscord, iconYoutube, iconX } from '../../assets/images';
 interface ScrollProps {
   scrollerState: boolean;
 }
@@ -18,13 +18,18 @@ export default function LinkNav({ scrollerState }: ScrollProps) {
           <img src={iconYoutube} alt="" />
         </Link>
       </li>
+      <li>
+        <Link to="https://x.com/CarrieVerse" target="_blank">
+          <img src={iconX} alt="" width={40} />
+        </Link>
+      </li>
     </LinkBar>
   );
 }
 const LinkBar = styled.ul<ScrollProps>`
   position: fixed;
   z-index: 2000;
-  bottom: ${({ scrollerState }) => (scrollerState ? "120px" : "40px")};
+  bottom: ${({ scrollerState }) => (scrollerState ? '132px' : '40px')};
   right: 80px;
   display: flex;
   transition: all ease 0.2s;

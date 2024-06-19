@@ -25,7 +25,7 @@ const snsLinks = [
     alt: 'YouTube',
   },
   {
-    href: 'https://www.youtube.com/@CarrieVerseOfficial',
+    href: 'https://x.com/CarrieVerse',
     src: iconX,
     alt: 'X',
   },
