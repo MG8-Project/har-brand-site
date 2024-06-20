@@ -1,14 +1,19 @@
-import styled from "styled-components";
-import { iconEpic, mainLogo } from "../../assets/images";
-import { theme } from "../../styles/theme";
+import styled from 'styled-components';
+import { iconEpic, mainLogo, iconSteam } from '../../assets/images';
+import { theme } from '../../styles/theme';
+
+const BTN_INFO = [
+  { img: iconSteam, text: 'Coming Soon' },
+  { img: iconEpic, text: 'Coming Soon' },
+];
 
 export default function Intro() {
   return (
-    <IntroWrapper id={"0"}>
+    <IntroWrapper id={'0'}>
       <ReactPlayerWrapper>
         <video autoPlay loop muted playsInline>
           <source
-            src={"https://har.mega8.io/static/media/har_intro_video.mp4"}
+            src={'https://har.mega8.io/static/media/har_intro_video.mp4'}
             type="video/mp4"
           />
         </video>
@@ -16,13 +21,14 @@ export default function Intro() {
       </ReactPlayerWrapper>
       <TitleWrap>
         <img src={mainLogo} alt="hunter's arena revolution logo" />
-        <BtnComingSoon>
-          <BtnEpic>
-            <img src={iconEpic} alt="epic game" />
-            <p>Log in with Epic Games</p>
-          </BtnEpic>
-          <BtnText>Coming Soon</BtnText>
-        </BtnComingSoon>
+        <ButtonWrapper>
+          {BTN_INFO.map((btn, index) => (
+            <BtnComingSoon key={index}>
+              <img src={btn.img} alt={`${btn.text.toLowerCase()} game`} />
+              <BtnText>{btn.text}</BtnText>
+            </BtnComingSoon>
+          ))}
+        </ButtonWrapper>
       </TitleWrap>
     </IntroWrapper>
   );
@@ -101,15 +107,21 @@ const TitleWrap = styled.div`
 
   > img {
     display: block;
-    width: 536px;
+    width: 424px;
+    height: 266px;
   }
 
   @media ${theme.mq.tablet} {
     top: 25.5%;
     gap: 17.3828vw;
     > img {
-      width: 32.0313vw;
+      width: 328px;
+      height: 206px;
     }
+  }
+
+  @media ${theme.mq.tablet} {
+    gap: 178px;
   }
   @media ${theme.mq.mobile} {
     position: absolute;
@@ -126,21 +138,24 @@ const TitleWrap = styled.div`
   }
 `;
 const BtnComingSoon = styled.button`
-  position: relative;
-  width: 276px;
+  width: 240px;
   height: 56px;
-  padding: 0;
   border-radius: 2px;
-  background-color: #2c2c2c;
-  overflow: hidden;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(1.5px);
+  color: #f5f5f5;
+  font-family: Inter;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   @media ${theme.mq.tablet} {
-    width: 240px;
+    width: 216px;
     height: 48px;
   }
   @media ${theme.mq.mobile} {
-    position: absolute;
-    bottom: 17.7778vw;
-    width: 216px;
+    width: 200px;
     height: 44px;
   }
 `;
@@ -181,13 +196,6 @@ const BtnEpic = styled.div`
   }
 `;
 const BtnText = styled.p`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  -webkit-backdrop-filter: blur(1.5px);
-  backdrop-filter: blur(1.5px);
   ${theme.positions.flexCenterXY};
   font-size: 1.8rem;
   font-weight: 600;
@@ -198,5 +206,18 @@ const BtnText = styled.p`
   }
   @media ${theme.mq.mobile} {
     font-size: 14px;
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  @media ${theme.mq.mobile} {
+    position: absolute;
+    bottom: 64px;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px; /* 버튼 간격을 조정할 수 있습니다 */
   }
 `;

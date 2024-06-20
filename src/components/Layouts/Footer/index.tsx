@@ -15,17 +15,17 @@ interface ScrollProps {
 
 const snsLinks = [
   {
-    href: 'https://discord.gg/carrieverseofficial',
+    href: 'https://discord.gg/megalink',
     src: iconDiscord,
     alt: 'Discord',
   },
   {
-    href: 'https://www.youtube.com/@CarrieVerseOfficial',
+    href: 'https://www.youtube.com/@Megalink_MG8',
     src: iconYoutube,
     alt: 'YouTube',
   },
   {
-    href: 'https://x.com/CarrieVerse',
+    href: 'https://twitter.com/MegalinkMG8',
     src: iconX,
     alt: 'X',
   },
@@ -37,7 +37,7 @@ export default function Footer({ scrollerState }: ScrollProps) {
   });
 
   const Responsive = useMediaQuery({
-    query: '(min-width: 601px) and (max-width: 1023px)',
+    query: '(min-width: 601px) and (max-width: 1024px)',
   });
 
   return (
