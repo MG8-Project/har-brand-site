@@ -80,7 +80,9 @@ export default function Footer({ scrollerState }: ScrollProps) {
                 </LinkItem>
               ))}
             </LinkSnsBox>
-            <PrivacyText href="/">Privacy Policy</PrivacyText>
+            <PrivacyText href="https://har.mega8.io/note/terms/personal/en_us/index.html">
+              Privacy Policy
+            </PrivacyText>
           </LinkSns>
         )}
       </InnerWrapper>
@@ -91,10 +93,10 @@ export default function Footer({ scrollerState }: ScrollProps) {
 const FooterWrapper = styled.footer<ScrollProps>`
   position: fixed;
   left: 0;
-  bottom: ${({ scrollerState }) => (scrollerState ? '0' : '-122px')};
+  bottom: ${({ scrollerState }) => (scrollerState ? '0' : '-114px')};
   width: 100%;
-  height: 122px;
-  padding: 36px 20px;
+  height: 114px;
+  padding: 32px 20px;
   background-color: #000;
   transition: bottom ease 0.2s;
   @media ${theme.mq.tablet} {
@@ -134,7 +136,7 @@ const LogoWrap = styled.div`
   width: 139px;
   img {
     display: block;
-    width: 222px;
+    width: 208px;
     height: auto;
     @media ${theme.mq.tablet} {
       width: 194.6px;

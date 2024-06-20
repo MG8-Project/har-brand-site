@@ -94,6 +94,7 @@ const ScreenshotLists = styled.ul`
   gap: 16px;
   padding: 0 20px;
   max-width: 1400px;
+
   &.dark {
     li {
       img {
@@ -103,7 +104,7 @@ const ScreenshotLists = styled.ul`
   }
   @media ${theme.mq.tablet} {
     width: 100%;
-    padding: 0 20px 145px;
+    padding: 0 56px 145px;
   }
   @media ${theme.mq.mobile} {
     grid-template-columns: repeat(2, 1fr);

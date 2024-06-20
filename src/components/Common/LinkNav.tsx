@@ -5,33 +5,32 @@ import { iconDiscord, iconYoutube, iconX } from '../../assets/images';
 interface ScrollProps {
   scrollerState: boolean;
 }
+
+const SNS_LINK = [
+  { href: 'https://discord.gg/megalink', icon: iconDiscord },
+  { href: 'https://www.youtube.com/@Megalink_MG8', icon: iconYoutube },
+  { href: 'https://twitter.com/MegalinkMG8', icon: iconX, width: 40 },
+];
 export default function LinkNav({ scrollerState }: ScrollProps) {
   return (
     <LinkBar scrollerState={scrollerState}>
-      <li>
-        <Link to="https://discord.gg/megalink" target="_blank">
-          <img src={iconDiscord} alt="" />
-        </Link>
-      </li>
-      <li>
-        <Link to="https://www.youtube.com/@Megalink_MG8" target="_blank">
-          <img src={iconYoutube} alt="" />
-        </Link>
-      </li>
-      <li>
-        <Link to="https://twitter.com/MegalinkMG8" target="_blank">
-          <img src={iconX} alt="" width={40} />
-        </Link>
-      </li>
+      {SNS_LINK.map((link, index) => (
+        <li key={index}>
+          <Link to={link.href} target="_blank">
+            <img src={link.icon} alt="" width={link.width || 'auto'} />
+          </Link>
+        </li>
+      ))}
     </LinkBar>
   );
 }
 const LinkBar = styled.ul<ScrollProps>`
   position: fixed;
   z-index: 2000;
-  bottom: ${({ scrollerState }) => (scrollerState ? '162px' : '40px')};
+  bottom: ${({ scrollerState }) => (scrollerState ? '154px' : '40px')};
   right: 80px;
   display: flex;
+  gap: 16px;
   transition: all ease 0.2s;
   li {
     a {
@@ -39,9 +38,6 @@ const LinkBar = styled.ul<ScrollProps>`
       img {
         display: block;
       }
-    }
-    &:not(:last-child) {
-      margin-right: 12px;
     }
   }
   @media ${theme.mq.tablet} {
