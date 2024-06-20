@@ -1,39 +1,86 @@
-import styled from "styled-components";
-import { theme } from "../../../styles/theme";
-import { iconDiscord, iconYoutube, megaLink } from "../../../assets/images";
-import { useMediaQuery } from "react-responsive";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { theme } from '../../../styles/theme';
+import {
+  iconDiscord,
+  iconYoutube,
+  megaLink,
+  iconX,
+} from '../../../assets/images';
+import { useMediaQuery } from 'react-responsive';
+import { Link } from 'react-router-dom';
 
 interface ScrollProps {
   scrollerState: boolean;
 }
 
+const snsLinks = [
+  {
+    href: 'https://discord.gg/megalink',
+    src: iconDiscord,
+    alt: 'Discord',
+  },
+  {
+    href: 'https://www.youtube.com/@Megalink_MG8',
+    src: iconYoutube,
+    alt: 'YouTube',
+  },
+  {
+    href: 'https://twitter.com/MegalinkMG8',
+    src: iconX,
+    alt: 'X',
+  },
+];
+
 export default function Footer({ scrollerState }: ScrollProps) {
-  const isTablet = useMediaQuery({
-    query: "(max-width: 1024px)",
+  const isMobile = useMediaQuery({
+    query: '(max-width: 600px)',
   });
+
+  const Responsive = useMediaQuery({
+    query: '(min-width: 601px) and (max-width: 1024px)',
+  });
+
   return (
     <FooterWrapper scrollerState={scrollerState}>
       <InnerWrapper>
-        <CopyRight>Megalink Labs Limited. All RIGHTS RESERVED.</CopyRight>
         <LogoWrap>
           <img src={megaLink} alt="메가링크 로고" />
         </LogoWrap>
-        {isTablet && (
+        <FooterInfoText>
+          {!Responsive && (
+            <PrivacyText
+              href="https://har.mega8.io/note/terms/personal/en_us/index.html"
+              target="_blank"
+            >
+              Privacy Policy
+            </PrivacyText>
+          )}
+          <CopyRight>ⓒ 2023 MEGALINK CO., LTD. All RIGHTS RESERVED</CopyRight>
+          {isMobile && (
+            <LinkSnsBox>
+              {snsLinks.map((link, index) => (
+                <LinkItem key={index}>
+                  <Link to={link.href} target="_blank">
+                    <img src={link.src} alt={link.alt} />
+                  </Link>
+                </LinkItem>
+              ))}
+            </LinkSnsBox>
+          )}
+        </FooterInfoText>
+
+        {Responsive && (
           <LinkSns>
-            <LinkItem>
-              <Link to="https://discord.gg/carrieverseofficial" target="_blank">
-                <img src={iconDiscord} alt="" />
-              </Link>
-            </LinkItem>
-            <LinkItem>
-              <Link
-                to="https://www.youtube.com/@CarrieVerseOfficial"
-                target="_blank"
-              >
-                <img src={iconYoutube} alt="" />
-              </Link>
-            </LinkItem>
+            <LinkSnsBox>
+              {snsLinks.map((link, index) => (
+                <LinkItem key={index}>
+                  <Link to={link.href} target="_blank">
+                    <img src={link.src} alt={link.alt} />
+                  </Link>
+                </LinkItem>
+              ))}
+            </LinkSnsBox>
+            <PrivacyText href="/">Privacy Policy</PrivacyText>
           </LinkSns>
         )}
       </InnerWrapper>
@@ -44,16 +91,20 @@ export default function Footer({ scrollerState }: ScrollProps) {
 const FooterWrapper = styled.footer<ScrollProps>`
   position: fixed;
   left: 0;
-  bottom: ${({ scrollerState }) => (scrollerState ? "0" : "-80px")};
+  bottom: ${({ scrollerState }) => (scrollerState ? '0' : '-122px')};
   width: 100%;
-  height: 80px;
-  padding: 28px;
+  height: 122px;
+  padding: 36px 260px;
   background-color: #000;
   transition: bottom ease 0.2s;
   @media ${theme.mq.tablet} {
     position: static;
-    height: 132px;
-    padding: 32px 40px;
+    height: 127px;
+    padding: 32px 56px;
+    @media ${theme.mq.mobile} {
+      height: 186px;
+      padding: 24px 49px 24px 36px;
+    }
   }
 `;
 const InnerWrapper = styled.div`
@@ -63,9 +114,8 @@ const InnerWrapper = styled.div`
   margin: 0 auto;
   @media ${theme.mq.tablet} {
     position: relative;
-    padding-top: 12px;
     align-items: flex-start;
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 16px;
   }
 `;
@@ -84,8 +134,14 @@ const LogoWrap = styled.div`
   width: 139px;
   img {
     display: block;
-    width: 100%;
+    width: 222px;
     height: auto;
+    @media ${theme.mq.tablet} {
+      width: 194.6px;
+    }
+    @media ${theme.mq.mobile} {
+      width: 138.75px;
+    }
   }
 `;
 const LinkSns = styled.ul`
@@ -93,7 +149,9 @@ const LinkSns = styled.ul`
   right: 0;
   top: 0;
   display: flex;
-  gap: 12px;
+  flex-direction: column;
+  gap: 10px;
+  text-align: end;
 `;
 const LinkItem = styled.li`
   width: 36px;
@@ -104,5 +162,42 @@ const LinkItem = styled.li`
       display: block;
       width: 100%;
     }
+  }
+`;
+const LinkSnsBox = styled.div`
+  display: flex;
+  gap: 12px;
+  list-style-type: none;
+  @media ${theme.mq.mobile} {
+    margin-top: 12px;
+  }
+`;
+
+const FooterInfoText = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: end;
+  color: #a0a0a0;
+  @media ${theme.mq.mobile} {
+    text-align: left;
+    gap: 12px;
+  }
+`;
+
+const PrivacyText = styled.a`
+  color: #a0a0a0;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.56px;
+  cursor: pointer;
+  &:hover {
+    color: #cacaca;
+  }
+  @media ${theme.mq.mobile} {
+    font-size: 12px;
   }
 `;
