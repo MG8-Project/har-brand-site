@@ -1,14 +1,19 @@
-import styled from "styled-components";
-import { iconEpic, mainLogo } from "../../assets/images";
-import { theme } from "../../styles/theme";
+import styled from 'styled-components';
+import { iconEpic, mainLogo, iconSteam } from '../../assets/images';
+import { theme } from '../../styles/theme';
+
+const BTN_INFO = [
+  { img: iconSteam, text: 'Coming Soon', alt: 'steam game' },
+  { img: iconEpic, text: 'Coming Soon', alt: 'epic game' },
+];
 
 export default function Intro() {
   return (
-    <IntroWrapper id={"0"}>
+    <IntroWrapper id={'0'}>
       <ReactPlayerWrapper>
         <video autoPlay loop muted playsInline>
           <source
-            src={"https://har.mega8.io/static/media/har_intro_video.mp4"}
+            src={'https://har.mega8.io/static/media/har_intro_video.mp4'}
             type="video/mp4"
           />
         </video>
@@ -16,13 +21,14 @@ export default function Intro() {
       </ReactPlayerWrapper>
       <TitleWrap>
         <img src={mainLogo} alt="hunter's arena revolution logo" />
-        <BtnComingSoon>
-          <BtnEpic>
-            <img src={iconEpic} alt="epic game" />
-            <p>Log in with Epic Games</p>
-          </BtnEpic>
-          <BtnText>Coming Soon</BtnText>
-        </BtnComingSoon>
+        <ButtonWrapper>
+          {BTN_INFO.map((item, index) => (
+            <BtnComingSoon key={index}>
+              <img src={item.img} alt={item.alt} />
+              <BtnText>{item.text}</BtnText>
+            </BtnComingSoon>
+          ))}
+        </ButtonWrapper>
       </TitleWrap>
     </IntroWrapper>
   );
@@ -101,7 +107,7 @@ const TitleWrap = styled.div`
 
   > img {
     display: block;
-    width: 536px;
+    width: 424px;
   }
 
   @media ${theme.mq.tablet} {
@@ -126,21 +132,24 @@ const TitleWrap = styled.div`
   }
 `;
 const BtnComingSoon = styled.button`
-  position: relative;
-  width: 276px;
+  width: 240px;
   height: 56px;
-  padding: 0;
   border-radius: 2px;
-  background-color: #2c2c2c;
-  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.8);
+  filter: brightness(0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  cursor: default;
   @media ${theme.mq.tablet} {
-    width: 240px;
+    width: 216px;
     height: 48px;
   }
   @media ${theme.mq.mobile} {
-    position: absolute;
-    bottom: 17.7778vw;
-    width: 216px;
+    width: 200px;
     height: 44px;
   }
 `;
@@ -181,16 +190,9 @@ const BtnEpic = styled.div`
   }
 `;
 const BtnText = styled.p`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  -webkit-backdrop-filter: blur(1.5px);
-  backdrop-filter: blur(1.5px);
   ${theme.positions.flexCenterXY};
   font-size: 1.8rem;
-  font-weight: 600;
+  font-weight: 500;
   color: ${theme.colors.tx};
 
   @media ${theme.mq.tablet} {
@@ -198,5 +200,16 @@ const BtnText = styled.p`
   }
   @media ${theme.mq.mobile} {
     font-size: 14px;
+  }
+`;
+const ButtonWrapper = styled.div`
+  display: flex;
+  gap: 20px;
+
+  @media ${theme.mq.mobile} {
+    position: absolute;
+    flex-direction: column;
+    bottom: 10%;
+    gap: 8px;
   }
 `;
