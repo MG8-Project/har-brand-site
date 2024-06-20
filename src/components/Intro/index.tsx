@@ -143,6 +143,7 @@ const BtnComingSoon = styled.button`
   justify-content: center;
   gap: 12px;
 
+  cursor: default;
   @media ${theme.mq.tablet} {
     width: 216px;
     height: 48px;
@@ -191,7 +192,7 @@ const BtnEpic = styled.div`
 const BtnText = styled.p`
   ${theme.positions.flexCenterXY};
   font-size: 1.8rem;
-  font-weight: 600;
+  font-weight: 500;
   color: ${theme.colors.tx};
 
   @media ${theme.mq.tablet} {
@@ -209,5 +210,6 @@ const ButtonWrapper = styled.div`
     position: absolute;
     flex-direction: column;
     bottom: 10%;
+    gap: 8px;
   }
 `;

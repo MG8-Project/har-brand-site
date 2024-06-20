@@ -189,7 +189,6 @@ const FooterInfoText = styled.div`
 
 const PrivacyText = styled.a`
   color: #a0a0a0;
-  font-family: Inter;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
