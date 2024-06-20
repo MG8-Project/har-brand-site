@@ -119,6 +119,7 @@ const ScreenshotItem = styled.li`
     width: 100%;
     filter: brightness(1);
     transition: filter 0.5s ease;
+    border: 0.5px solid #303843;
   }
   &:hover {
     transform: scale(1.05);
