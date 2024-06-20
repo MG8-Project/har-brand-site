@@ -94,7 +94,7 @@ const FooterWrapper = styled.footer<ScrollProps>`
   bottom: ${({ scrollerState }) => (scrollerState ? '0' : '-122px')};
   width: 100%;
   height: 122px;
-  padding: 36px 260px;
+  padding: 36px 20px;
   background-color: #000;
   transition: bottom ease 0.2s;
   @media ${theme.mq.tablet} {
