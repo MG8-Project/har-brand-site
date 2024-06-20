@@ -3,8 +3,8 @@ import { iconEpic, mainLogo, iconSteam } from '../../assets/images';
 import { theme } from '../../styles/theme';
 
 const BTN_INFO = [
-  { img: iconSteam, text: 'Coming Soon' },
-  { img: iconEpic, text: 'Coming Soon' },
+  { img: iconSteam, text: 'Coming Soon', alt: 'steam game' },
+  { img: iconEpic, text: 'Coming Soon', alt: 'epic game' },
 ];
 
 export default function Intro() {
@@ -22,10 +22,10 @@ export default function Intro() {
       <TitleWrap>
         <img src={mainLogo} alt="hunter's arena revolution logo" />
         <ButtonWrapper>
-          {BTN_INFO.map((btn, index) => (
+          {BTN_INFO.map((item, index) => (
             <BtnComingSoon key={index}>
-              <img src={btn.img} alt={`${btn.text.toLowerCase()} game`} />
-              <BtnText>{btn.text}</BtnText>
+              <img src={item.img} alt={item.alt} />
+              <BtnText>{item.text}</BtnText>
             </BtnComingSoon>
           ))}
         </ButtonWrapper>
@@ -108,20 +108,14 @@ const TitleWrap = styled.div`
   > img {
     display: block;
     width: 424px;
-    height: 266px;
   }
 
   @media ${theme.mq.tablet} {
     top: 25.5%;
     gap: 17.3828vw;
     > img {
-      width: 328px;
-      height: 206px;
+      width: 32.0313vw;
     }
-  }
-
-  @media ${theme.mq.tablet} {
-    gap: 178px;
   }
   @media ${theme.mq.mobile} {
     position: absolute;
@@ -141,15 +135,14 @@ const BtnComingSoon = styled.button`
   width: 240px;
   height: 56px;
   border-radius: 2px;
+  border-radius: 2px;
   background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(1.5px);
-  color: #f5f5f5;
-  font-family: Inter;
-  font-size: 18px;
+  filter: brightness(0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
+
   @media ${theme.mq.tablet} {
     width: 216px;
     height: 48px;
@@ -208,16 +201,13 @@ const BtnText = styled.p`
     font-size: 14px;
   }
 `;
-
 const ButtonWrapper = styled.div`
   display: flex;
-  align-items: flex-start;
-  gap: 24px;
+  gap: 20px;
+
   @media ${theme.mq.mobile} {
     position: absolute;
-    bottom: 64px;
     flex-direction: column;
-    align-items: center;
-    gap: 12px; /* 버튼 간격을 조정할 수 있습니다 */
+    bottom: 10%;
   }
 `;

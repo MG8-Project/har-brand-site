@@ -1,7 +1,7 @@
-import { iconDeco } from "../../assets/images";
-import styled from "styled-components";
-import { theme } from "../../styles/theme";
-import { ReactNode } from "react";
+import { iconDeco } from '../../assets/images';
+import styled from 'styled-components';
+import { theme } from '../../styles/theme';
+import { ReactNode } from 'react';
 
 export default function Title({ children }: { children: ReactNode }) {
   return (
@@ -40,7 +40,7 @@ const TitleDeco = styled.div`
   align-items: center;
   &:before {
     display: block;
-    content: "";
+    content: '';
     position: absolute;
     bottom: calc(50% - 2px);
     left: 50%;

@@ -59,7 +59,7 @@ export default function Home(): JSX.Element {
 const BodyWrapper = styled.main<ScrollProps>`
   width: 100%;
   overflow: hidden;
-  margin-top: ${({ scrollerState }) => (scrollerState ? '-122px' : '0')};
+  margin-top: ${({ scrollerState }) => (scrollerState ? '-114px' : '0')};
   transition: all ease 0.2s;
   background-color: #000;
 `;
