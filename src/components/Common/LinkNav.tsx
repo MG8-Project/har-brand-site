@@ -9,17 +9,17 @@ export default function LinkNav({ scrollerState }: ScrollProps) {
   return (
     <LinkBar scrollerState={scrollerState}>
       <li>
-        <Link to="https://discord.gg/carrieverseofficial" target="_blank">
+        <Link to="https://discord.gg/megalink" target="_blank">
           <img src={iconDiscord} alt="" />
         </Link>
       </li>
       <li>
-        <Link to="https://www.youtube.com/@CarrieVerseOfficial" target="_blank">
+        <Link to="https://www.youtube.com/@Megalink_MG8" target="_blank">
           <img src={iconYoutube} alt="" />
         </Link>
       </li>
       <li>
-        <Link to="https://x.com/CarrieVerse" target="_blank">
+        <Link to="https://twitter.com/MegalinkMG8" target="_blank">
           <img src={iconX} alt="" width={40} />
         </Link>
       </li>
@@ -29,7 +29,7 @@ export default function LinkNav({ scrollerState }: ScrollProps) {
 const LinkBar = styled.ul<ScrollProps>`
   position: fixed;
   z-index: 2000;
-  bottom: ${({ scrollerState }) => (scrollerState ? '132px' : '40px')};
+  bottom: ${({ scrollerState }) => (scrollerState ? '162px' : '40px')};
   right: 80px;
   display: flex;
   transition: all ease 0.2s;
