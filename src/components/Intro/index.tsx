@@ -13,7 +13,7 @@ export default function Intro() {
       <ReactPlayerWrapper>
         <video autoPlay loop muted playsInline>
           <source
-            src={'https://har.mega8.io/static/media/har_intro_video.mp4'}
+            src={'/static/media/har_intro_video.mp4'}
             type="video/mp4"
           />
         </video>
