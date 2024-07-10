@@ -1,0 +1,23 @@
+version: 0.2
+env:
+  git-credential-helper: yes
+phases:
+  build:
+    on-failure: ABORT
+    commands:
+      - yarn install --frozen-lockfile
+      - yarn build
+
+  post_build:
+    on-failure: ABORT
+    commands:
+      - S3_BUCKET="har-web3-prod-s3-har-brand-site"
+      - S3_REGION="ap-southeast-1"
+      - CF_DISTRIBUTION_NAME="E8C6LSPRXTA7L"
+      
+      - aws s3 cp --recursive --region $S3_REGION ./build s3://$S3_BUCKET
+      - aws cloudfront create-invalidation --distribution-id $CF_DISTRIBUTION_NAME --paths "/*"
+
+artifacts:
+  files:
+    - '**/*'
