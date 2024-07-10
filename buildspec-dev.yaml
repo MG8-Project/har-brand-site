@@ -1,0 +1,23 @@
+version: 0.2
+env:
+  git-credential-helper: yes
+phases:
+  build:
+    on-failure: ABORT
+    commands:
+      - yarn install --frozen-lockfile
+      - npm run build:dev
+
+  post_build:
+    on-failure: ABORT
+    commands:
+      - S3_BUCKET="hunters-arena-web3-s3-har-brand-site-dev"
+      - S3_REGION="ap-northeast-2"
+      - CF_DISTRIBUTION_NAME="E1WLIRLHFZANBR"
+      
+      - aws s3 cp --recursive --region $S3_REGION ./build s3://$S3_BUCKET
+      - aws cloudfront create-invalidation --distribution-id $CF_DISTRIBUTION_NAME --paths "/*"
+
+artifacts:
+  files:
+    - '**/*'
