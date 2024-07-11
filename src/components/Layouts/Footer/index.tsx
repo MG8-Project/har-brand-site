@@ -48,12 +48,16 @@ export default function Footer({ scrollerState }: ScrollProps) {
         </LogoWrap>
         <FooterInfoText>
           {!Responsive && (
-            <PrivacyText
-              href="https://har.mega8.io/note/terms/personal/en_us/index.html"
-              target="_blank"
-            >
-              Privacy Policy
-            </PrivacyText>
+            <PrivacyTextWrapper>
+              <PrivacyText
+                href="https://har.mega8.io/note/terms/personal/en_us/index.html"
+                target="_blank"
+              >
+                Privacy Policy
+              </PrivacyText>
+              <Divider />
+              <PrivacyText>CS@mega8.io</PrivacyText>
+            </PrivacyTextWrapper>
           )}
           <CopyRight>ⓒ 2023 MEGALINK CO., LTD. All RIGHTS RESERVED</CopyRight>
           {isMobile && (
@@ -80,9 +84,16 @@ export default function Footer({ scrollerState }: ScrollProps) {
                 </LinkItem>
               ))}
             </LinkSnsBox>
-            <PrivacyText href="https://har.mega8.io/note/terms/personal/en_us/index.html">
-              Privacy Policy
-            </PrivacyText>
+            <PrivacyTextWrapper>
+              <PrivacyText
+                href="https://har.mega8.io/note/terms/personal/en_us/index.html"
+                target="_blank"
+              >
+                Privacy Policy
+              </PrivacyText>
+              <Divider />
+              <PrivacyText>CS@mega8.io</PrivacyText>
+            </PrivacyTextWrapper>
           </LinkSns>
         )}
       </InnerWrapper>
@@ -186,7 +197,21 @@ const FooterInfoText = styled.div`
     gap: 12px;
   }
 `;
+const PrivacyTextWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  @media ${theme.mq.mobile} {
+    justify-content: flex-start;
+  }
+`;
 
+const Divider = styled.span`
+  background: #4a4a4a;
+  width: 1px;
+  height: 11px;
+  margin: 0px 8px;
+`;
 const PrivacyText = styled.a`
   color: #a0a0a0;
   font-size: 14px;

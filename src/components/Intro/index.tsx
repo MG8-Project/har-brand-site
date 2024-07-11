@@ -1,10 +1,19 @@
 import styled from 'styled-components';
-import { iconEpic, mainLogo, iconSteam } from '../../assets/images';
+import { iconEpic, mainLogo, iconSteam, dateText } from '../../assets/images';
 import { theme } from '../../styles/theme';
 
+interface BtnComingSoonProps {
+  first: boolean;
+}
+
 const BTN_INFO = [
-  { img: iconSteam, text: 'Coming Soon', alt: 'steam game' },
-  { img: iconEpic, text: 'Coming Soon', alt: 'epic game' },
+  {
+    img: iconSteam,
+    text: 'Steam',
+    link: 'https://store.steampowered.com/app/3013930/Hunters_Arena_Revolution/',
+    alt: 'steam game',
+  },
+  { img: iconEpic, text: 'Coming Soon', link: '', alt: 'epic game' },
 ];
 
 export default function Intro() {
@@ -12,21 +21,21 @@ export default function Intro() {
     <IntroWrapper id={'0'}>
       <ReactPlayerWrapper>
         <video autoPlay loop muted playsInline>
-          <source
-            src={'/static/media/har_intro_video.mp4'}
-            type="video/mp4"
-          />
+          <source src={'/static/media/har_intro_video.mp4'} type="video/mp4" />
         </video>
         <IntroOpacityBg />
       </ReactPlayerWrapper>
       <TitleWrap>
         <img src={mainLogo} alt="hunter's arena revolution logo" />
+        <img src={dateText} alt="" />
         <ButtonWrapper>
           {BTN_INFO.map((item, index) => (
-            <BtnComingSoon key={index}>
-              <img src={item.img} alt={item.alt} />
-              <BtnText>{item.text}</BtnText>
-            </BtnComingSoon>
+            <a href={item.link} key={index} target="_blank">
+              <BtnComingSoon first={index === 0}>
+                <img src={item.img} alt={item.alt} />
+                <BtnText>{item.text}</BtnText>
+              </BtnComingSoon>
+            </a>
           ))}
         </ButtonWrapper>
       </TitleWrap>
@@ -59,7 +68,7 @@ const ReactPlayerWrapper = styled.div`
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 56.25%;
 
   video {
     position: absolute;
@@ -98,7 +107,7 @@ const IntroOpacityBg = styled.div`
 `;
 const TitleWrap = styled.div`
   ${theme.positions.flexColumnY};
-  gap: 101px;
+  /* gap: 60px; */
   position: absolute;
   top: 35.4%;
   left: 50%;
@@ -108,13 +117,23 @@ const TitleWrap = styled.div`
   > img {
     display: block;
     width: 424px;
+    &:nth-child(2) {
+      width: 253px;
+      height: 72px;
+      margin: 70px 0px 40px;
+    }
   }
 
   @media ${theme.mq.tablet} {
     top: 25.5%;
-    gap: 17.3828vw;
     > img {
       width: 32.0313vw;
+      &:nth-child(2) {
+        width: 253px;
+
+        top: 40%;
+        margin: 70px 0px 40px;
+      }
     }
   }
   @media ${theme.mq.mobile} {
@@ -131,10 +150,9 @@ const TitleWrap = styled.div`
     }
   }
 `;
-const BtnComingSoon = styled.button`
+const BtnComingSoon = styled.button<BtnComingSoonProps>`
   width: 240px;
   height: 56px;
-  border-radius: 2px;
   border-radius: 2px;
   background: rgba(0, 0, 0, 0.8);
   filter: brightness(0.5);
@@ -142,8 +160,19 @@ const BtnComingSoon = styled.button`
   align-items: center;
   justify-content: center;
   gap: 12px;
-
   cursor: default;
+
+  ${(props) =>
+    props.first &&
+    `
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    filter: brightness(1);
+    &:hover {
+      box-shadow: 0px 0px 6px 0px rgba(255, 255, 255, 0.3);
+    }
+  `}
+
   @media ${theme.mq.tablet} {
     width: 216px;
     height: 48px;
@@ -153,42 +182,7 @@ const BtnComingSoon = styled.button`
     height: 44px;
   }
 `;
-const BtnEpic = styled.div`
-  display: flex;
-  gap: 5px;
-  align-items: center;
-  padding: 0 8px;
-  > img {
-    display: block;
-    width: 44px;
-    padding: 0 11px;
-    height: auto;
-  }
-  p {
-    font-size: 1.8rem;
-    font-weight: 500;
-  }
-  @media ${theme.mq.tablet} {
-    padding: 0 6px;
-    gap: 0;
-    > img {
-      width: 40px;
-    }
-    p {
-      font-size: 16px;
-    }
-  }
-  @media ${theme.mq.mobile} {
-    padding: 0 4px;
-    gap: 4px;
-    > img {
-      width: 36px;
-    }
-    p {
-      font-size: 14px;
-    }
-  }
-`;
+
 const BtnText = styled.p`
   ${theme.positions.flexCenterXY};
   font-size: 1.8rem;

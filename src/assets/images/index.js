@@ -11,3 +11,4 @@ export { default as iconEpic } from './icon_epic.svg';
 
 // screen shots
 export { default as galleryBg } from './gallery/bg_gallery.jpg';
+export { default as dateText } from './Har_text.png';
