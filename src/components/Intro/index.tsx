@@ -13,7 +13,7 @@ const BTN_INFO = [
     link: 'https://store.steampowered.com/app/3013930/Hunters_Arena_Revolution/',
     alt: 'steam game',
   },
-  { img: iconEpic, text: 'Coming Soon', link: '', alt: 'epic game' },
+  { img: iconEpic, text: 'Coming Soon', alt: 'epic game' },
 ];
 
 export default function Intro() {
@@ -154,8 +154,8 @@ const BtnComingSoon = styled.button<BtnComingSoonProps>`
   width: 240px;
   height: 56px;
   border-radius: 2px;
-  background: rgba(0, 0, 0, 0.8);
-  filter: brightness(0.5);
+  background: rgba(0, 0, 0, 0.7);
+  filter: brightness(0.2);
   display: flex;
   align-items: center;
   justify-content: center;

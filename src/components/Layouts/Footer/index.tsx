@@ -56,7 +56,7 @@ export default function Footer({ scrollerState }: ScrollProps) {
                 Privacy Policy
               </PrivacyText>
               <Divider />
-              <PrivacyText>CS@mega8.io</PrivacyText>
+              <EmailText>CS@mega8.io</EmailText>
             </PrivacyTextWrapper>
           )}
           <CopyRight>ⓒ 2023 MEGALINK CO., LTD. All RIGHTS RESERVED</CopyRight>
@@ -92,7 +92,7 @@ export default function Footer({ scrollerState }: ScrollProps) {
                 Privacy Policy
               </PrivacyText>
               <Divider />
-              <PrivacyText>CS@mega8.io</PrivacyText>
+              <EmailText>CS@mega8.io</EmailText>
             </PrivacyTextWrapper>
           </LinkSns>
         )}
@@ -223,6 +223,18 @@ const PrivacyText = styled.a`
   &:hover {
     color: #cacaca;
   }
+  @media ${theme.mq.mobile} {
+    font-size: 12px;
+  }
+`;
+const EmailText = styled.a`
+  color: #a0a0a0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.56px;
+
   @media ${theme.mq.mobile} {
     font-size: 12px;
   }
