@@ -109,7 +109,7 @@ const TitleWrap = styled.div`
   ${theme.positions.flexColumnY};
   /* gap: 60px; */
   position: absolute;
-  top: 35.4%;
+  top: 21.4%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -131,7 +131,7 @@ const TitleWrap = styled.div`
       &:nth-child(2) {
         width: 253px;
 
-        top: 40%;
+        top: 50%;
         margin: 70px 0px 40px;
       }
     }
@@ -162,12 +162,17 @@ const BtnComingSoon = styled.button<BtnComingSoonProps>`
   gap: 12px;
   cursor: default;
 
+  /* 조건부 스타일링 */
   ${(props) =>
     props.first &&
     `
     cursor: pointer;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
     filter: brightness(1);
+    border: 1px solid;
+    border-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.5) 100%);
+    border-image-slice: 1;
+    border-radius: 2px;
     &:hover {
       box-shadow: 0px 0px 6px 0px rgba(255, 255, 255, 0.3);
     }
@@ -182,7 +187,6 @@ const BtnComingSoon = styled.button<BtnComingSoonProps>`
     height: 44px;
   }
 `;
-
 const BtnText = styled.p`
   ${theme.positions.flexCenterXY};
   font-size: 1.8rem;
