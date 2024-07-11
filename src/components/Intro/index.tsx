@@ -170,7 +170,7 @@ const BtnComingSoon = styled.button<BtnComingSoonProps>`
     filter: brightness(1);
     border: 1px solid;
     border-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.5) 100%);
+      linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.5) 100%);
     border-image-slice: 1;
     border-radius: 2px;
     &:hover {
