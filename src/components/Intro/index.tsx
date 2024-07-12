@@ -114,7 +114,7 @@ const TitleWrap = styled.div`
   ${theme.positions.flexColumnY};
   /* gap: 60px; */
   position: absolute;
-  top: 21.4%;
+  top: 25.4%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
@@ -152,6 +152,7 @@ const TitleWrap = styled.div`
       top: 23.125%;
       width: 66.6667vw;
       &:nth-child(2) {
+        top: 67.4%;
         width: 170px;
         height: 48px;
         margin: 0;
@@ -184,7 +185,6 @@ const BtnSteam = styled.button`
   width: 240px;
   height: 56px;
   background: rgba(0, 0, 0, 0.8);
-  filter: brightness(1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -202,7 +202,7 @@ const BtnSteam = styled.button`
     bottom: 0;
     border-radius: 2px;
     padding: 1px;
-
+    backdrop-filter: blur(1.5px);
     background: linear-gradient(
         273deg,
         rgba(245, 245, 245, 0) 50%,
