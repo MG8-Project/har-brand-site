@@ -29,14 +29,19 @@ export default function Intro() {
         <img src={mainLogo} alt="hunter's arena revolution logo" />
         <img src={dateText} alt="" />
         <ButtonWrapper>
-          {BTN_INFO.map((item, index) => (
-            <a href={item.link} key={index} target="_blank">
-              <BtnComingSoon first={index === 0}>
-                <img src={item.img} alt={item.alt} />
-                <BtnText>{item.text}</BtnText>
-              </BtnComingSoon>
-            </a>
-          ))}
+          <a
+            href="https://store.steampowered.com/app/3013930/Hunters_Arena_Revolution/"
+            target="_blank"
+          >
+            <BtnSteam>
+              <img src={iconSteam} alt="steam" />
+              <BtnText>Steam</BtnText>
+            </BtnSteam>
+          </a>
+          <BtnComingSoon>
+            <img src={iconEpic} alt="epic game" />
+            <BtnText>Coming Soon</BtnText>
+          </BtnComingSoon>
         </ButtonWrapper>
       </TitleWrap>
     </IntroWrapper>
@@ -130,7 +135,6 @@ const TitleWrap = styled.div`
       width: 32.0313vw;
       &:nth-child(2) {
         width: 253px;
-
         top: 50%;
         margin: 70px 0px 40px;
       }
@@ -147,10 +151,15 @@ const TitleWrap = styled.div`
       position: absolute;
       top: 23.125%;
       width: 66.6667vw;
+      &:nth-child(2) {
+        width: 170px;
+        height: 48px;
+        margin: 0;
+      }
     }
   }
 `;
-const BtnComingSoon = styled.button<BtnComingSoonProps>`
+const BtnComingSoon = styled.button`
   width: 240px;
   height: 56px;
   border-radius: 2px;
@@ -162,21 +171,60 @@ const BtnComingSoon = styled.button<BtnComingSoonProps>`
   gap: 12px;
   cursor: default;
 
-  /* 조건부 스타일링 */
-  ${(props) =>
-    props.first &&
-    `
-    cursor: pointer;
-    filter: brightness(1);
-    border: 1px solid;
-    border-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.5) 100%);
-    border-image-slice: 1;
+  @media ${theme.mq.tablet} {
+    width: 216px;
+    height: 48px;
+  }
+  @media ${theme.mq.mobile} {
+    width: 200px;
+    height: 44px;
+  }
+`;
+const BtnSteam = styled.button`
+  width: 240px;
+  height: 56px;
+  background: rgba(0, 0, 0, 0.8);
+  filter: brightness(1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     border-radius: 2px;
-    &:hover {
-      box-shadow: 0px 0px 6px 0px rgba(255, 255, 255, 0.3);
-    }
-  `}
+    padding: 1px;
+    background: linear-gradient(
+        273deg,
+        rgba(245, 245, 245, 0) 50%,
+        rgba(245, 245, 245, 0.1) 100%
+      ),
+      linear-gradient(
+        93deg,
+        rgba(245, 245, 245, 0) 75%,
+        rgba(245, 245, 245, 0.1) 100%
+      ),
+      rgba(0, 0, 0, 0.8);
+
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 6px 0px rgba(255, 255, 255, 0.3);
+  }
 
   @media ${theme.mq.tablet} {
     width: 216px;
@@ -194,7 +242,7 @@ const BtnText = styled.p`
   color: ${theme.colors.tx};
 
   @media ${theme.mq.tablet} {
-    font-size: 16px;
+    font-size: 14px;
   }
   @media ${theme.mq.mobile} {
     font-size: 14px;
