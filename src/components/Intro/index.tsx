@@ -193,7 +193,6 @@ const BtnSteam = styled.button`
   border-radius: 2px;
   position: relative;
   overflow: hidden;
-
   &::before {
     content: '';
     position: absolute;
@@ -203,17 +202,20 @@ const BtnSteam = styled.button`
     bottom: 0;
     border-radius: 2px;
     padding: 1px;
+
     background: linear-gradient(
         273deg,
         rgba(245, 245, 245, 0) 50%,
-        rgba(245, 245, 245, 0.1) 100%
+        rgba(245, 245, 245, 0.3) 100%
       ),
       linear-gradient(
         93deg,
-        rgba(245, 245, 245, 0) 75%,
-        rgba(245, 245, 245, 0.1) 100%
+        rgba(245, 245, 245, 0.1) 75%,
+        rgba(245, 245, 245, 0.3) 100%
       ),
       rgba(0, 0, 0, 0.8);
+
+    backdrop-filter: blur(1.5px);
 
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
