@@ -182,7 +182,6 @@ const BtnComingSoon = styled.button`
   }
 `;
 const BtnSteam = styled.button`
-  z-index: 999;
   width: 240px;
   height: 56px;
   background: rgba(0, 0, 0, 0.8);
@@ -195,6 +194,7 @@ const BtnSteam = styled.button`
   position: relative;
   overflow: hidden;
   &::before {
+    z-index: 999;
     content: '';
     position: absolute;
     top: 0;
@@ -223,6 +223,9 @@ const BtnSteam = styled.button`
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
+    img {
+      z-index: 999;
+    }
   }
 
   &:hover {
@@ -239,6 +242,7 @@ const BtnSteam = styled.button`
   }
 `;
 const BtnText = styled.p`
+  z-index: 999;
   ${theme.positions.flexCenterXY};
   font-size: 1.8rem;
   font-weight: 500;
