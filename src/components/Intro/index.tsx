@@ -34,7 +34,7 @@ export default function Intro() {
             target="_blank"
           >
             <BtnSteam>
-              <img src={iconSteam} alt="steam" />
+              <Icon src={iconSteam} alt="steam" />
               <BtnText>Steam</BtnText>
             </BtnSteam>
           </a>
@@ -238,6 +238,7 @@ const BtnSteam = styled.button`
   }
 `;
 const BtnText = styled.p`
+  z-index: 999;
   ${theme.positions.flexCenterXY};
   font-size: 1.8rem;
   font-weight: 500;
@@ -260,4 +261,8 @@ const ButtonWrapper = styled.div`
     bottom: 10%;
     gap: 8px;
   }
+`;
+
+const Icon = styled.img`
+  z-index: 999;
 `;
