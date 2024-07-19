@@ -34,7 +34,7 @@ export default function Intro() {
             target="_blank"
           >
             <BtnSteam>
-              <img src={iconSteam} alt="steam" />
+              <Icon src={iconSteam} alt="steam" />
               <BtnText>Steam</BtnText>
             </BtnSteam>
           </a>
@@ -222,9 +222,6 @@ const BtnSteam = styled.button`
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    img {
-      z-index: 999;
-    }
   }
 
   &:hover {
@@ -264,4 +261,8 @@ const ButtonWrapper = styled.div`
     bottom: 10%;
     gap: 8px;
   }
+`;
+
+const Icon = styled.img`
+  z-index: 999;
 `;
