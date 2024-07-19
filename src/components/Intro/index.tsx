@@ -194,7 +194,6 @@ const BtnSteam = styled.button`
   position: relative;
   overflow: hidden;
   &::before {
-    z-index: 999;
     content: '';
     position: absolute;
     top: 0;
