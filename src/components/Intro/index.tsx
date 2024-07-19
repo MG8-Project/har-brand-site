@@ -182,6 +182,7 @@ const BtnComingSoon = styled.button`
   }
 `;
 const BtnSteam = styled.button`
+  z-index: 999;
   width: 240px;
   height: 56px;
   background: rgba(0, 0, 0, 0.8);
