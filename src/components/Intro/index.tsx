@@ -27,7 +27,7 @@ export default function Intro() {
       </ReactPlayerWrapper>
       <TitleWrap>
         <img src={mainLogo} alt="hunter's arena revolution logo" />
-        <img src={dateText} alt="" />
+        {/* <img src={dateText} alt="" /> */}
         <ButtonWrapper>
           <a
             href="https://store.steampowered.com/app/3013930/Hunters_Arena_Revolution/"
@@ -254,6 +254,7 @@ const BtnText = styled.p`
 const ButtonWrapper = styled.div`
   display: flex;
   gap: 20px;
+  margin-top: 12vh;
 
   @media ${theme.mq.mobile} {
     position: absolute;
