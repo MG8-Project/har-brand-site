@@ -181,6 +181,9 @@ const LinkSnsBox = styled.div`
   display: flex;
   gap: 12px;
   list-style-type: none;
+  @media ${theme.mq.tablet} {
+    justify-content: flex-end;
+  }
   @media ${theme.mq.mobile} {
     margin-top: 12px;
   }
