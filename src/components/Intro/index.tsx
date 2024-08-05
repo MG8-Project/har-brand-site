@@ -15,7 +15,7 @@ const BTN_INFO = [
   },
   {
     img: iconEpic,
-    text: 'Coming Soon',
+    text: 'Epic',
     link: 'https://store.epicgames.com/en-US/p/hunters-arena-revolution_test-f21397',
     alt: 'epic game',
   },
