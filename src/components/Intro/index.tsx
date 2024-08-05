@@ -13,7 +13,12 @@ const BTN_INFO = [
     link: 'https://store.steampowered.com/app/3013930/Hunters_Arena_Revolution/',
     alt: 'steam game',
   },
-  { img: iconEpic, text: 'Coming Soon', alt: 'epic game' },
+  {
+    img: iconEpic,
+    text: 'Coming Soon',
+    link: 'https://store.epicgames.com/en-US/p/hunters-arena-revolution_test-f21397',
+    alt: 'epic game',
+  },
 ];
 
 export default function Intro() {
@@ -29,19 +34,19 @@ export default function Intro() {
         <img src={mainLogo} alt="hunter's arena revolution logo" />
         {/* <img src={dateText} alt="" /> */}
         <ButtonWrapper>
-          <a
-            href="https://store.steampowered.com/app/3013930/Hunters_Arena_Revolution/"
-            target="_blank"
-          >
-            <BtnSteam>
-              <Icon src={iconSteam} alt="steam" />
-              <BtnText>Steam</BtnText>
-            </BtnSteam>
-          </a>
-          <BtnComingSoon>
-            <img src={iconEpic} alt="epic game" />
-            <BtnText>Coming Soon</BtnText>
-          </BtnComingSoon>
+          {BTN_INFO.map((item, index) => (
+            <a
+              key={index}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <StyledButton>
+                <Icon src={item.img} alt={item.alt} />
+                <BtnText>{item.text}</BtnText>
+              </StyledButton>
+            </a>
+          ))}
         </ButtonWrapper>
       </TitleWrap>
     </IntroWrapper>
@@ -181,7 +186,7 @@ const BtnComingSoon = styled.button`
     height: 44px;
   }
 `;
-const BtnSteam = styled.button`
+const StyledButton = styled.button`
   width: 240px;
   height: 56px;
   background: rgba(0, 0, 0, 0.8);
@@ -254,7 +259,11 @@ const BtnText = styled.p`
 const ButtonWrapper = styled.div`
   display: flex;
   gap: 20px;
-  margin-top: 12vh;
+  margin-top: 101px;
+  @media ${theme.mq.tablet} {
+    /* margin-top: 25vh; */
+    margin-top: 177px;
+  }
 
   @media ${theme.mq.mobile} {
     position: absolute;
