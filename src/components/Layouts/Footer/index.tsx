@@ -185,6 +185,7 @@ const LinkSnsBox = styled.div`
     justify-content: flex-end;
   }
   @media ${theme.mq.mobile} {
+    justify-content: flex-start;
     margin-top: 12px;
   }
 `;
